@@ -1,0 +1,20 @@
+---
+- name: install Atom with cask
+  homebrew_cask:
+    name: atom
+
+- name: Check if APM is available (run atom once to install cli tools)
+  command: apm -v
+  changed_when: False
+
+- name: list APM installed packages
+  command: apm ls -i -b -p
+  changed_when: False
+  register: atom_packages_installed
+
+# TODO: remove non-listed packages
+
+- name: install Atom packages
+  command: apm install {{ item }}
+  with_items: "{{ atom.packages }}"
+  when: "item not in atom_packages_installed.stdout"

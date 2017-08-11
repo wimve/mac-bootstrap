@@ -1,0 +1,4 @@
+---
+- name: install VLC with cask
+  homebrew_cask:
+    name: vlc

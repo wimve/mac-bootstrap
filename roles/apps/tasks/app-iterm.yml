@@ -1,0 +1,24 @@
+---
+- name: install iTerm with cask
+  homebrew_cask:
+    name: iterm2
+
+- name: set iTerm custom settings file
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: PrefsCustomFolder
+    value: "{{ ansible_env.PWD }}/roles/apps/files/iterm"
+
+- name: activate iTerm custom settings file
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: LoadPrefsFromCustomFolder
+    type: boolean
+    value: true
+
+- name: save iTerm custom settings file on close
+  osx_defaults:
+    domain: com.googlecode.iterm2
+    key: NoSyncNeverRemindPrefsChangesLostForFile_selection
+    type: int
+    value: 0

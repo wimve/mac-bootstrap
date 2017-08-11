@@ -1,0 +1,4 @@
+---
+- name: install SourceTree with cask
+  homebrew_cask:
+    name: sourcetree

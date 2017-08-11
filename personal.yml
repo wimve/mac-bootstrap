@@ -1,0 +1,11 @@
+- hosts: personal
+  become_user: aapje
+  become: yes
+  roles:
+    - prerequisites
+    - homebrew
+    - git
+    - java
+    - zsh
+    - fonts
+    - apps

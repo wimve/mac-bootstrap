@@ -1,0 +1,4 @@
+---
+- name: install Flux with cask
+  homebrew_cask:
+    name: flux

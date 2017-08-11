@@ -1,0 +1,11 @@
+---
+- name: install Spotify with cask
+  homebrew_cask:
+    name: spotify
+
+- name: Fix Spotify for multiple users
+  file:
+    path: /Applications/Spotify.app
+    state: directory
+    recurse: yes
+    mode: 0755

@@ -1,0 +1,14 @@
+---
+- name: install with homebrew
+  homebrew:
+    name: git
+    state: latest
+
+- name: add global gitignore
+  copy:
+    src: gitignore_global
+    dest: ~/.gitignore_global
+
+# TODO: Check when changed
+- name: add global gitignore
+  shell: git config --global core.excludesfile ~/.gitignore_global

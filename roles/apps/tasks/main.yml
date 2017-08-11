@@ -1,0 +1,5 @@
+- name: install apps
+  include: "{{ app_task }}"
+  with_fileglob: "../tasks/app-*"
+  loop_control:
+    loop_var: app_task

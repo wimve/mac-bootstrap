@@ -1,0 +1,12 @@
+---
+- name: add homebrew cask fonts tap
+  homebrew_tap:
+    name: caskroom/fonts
+
+
+- name: install fonts with cask
+  homebrew_cask:
+    name: "{{ item }}"
+  with_items:
+    - font-meslo-for-powerline
+    - font-hack

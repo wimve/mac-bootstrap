@@ -1,0 +1,4 @@
+---
+- name: install Slack with cask
+  homebrew_cask:
+    name: slack

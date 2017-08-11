@@ -1,0 +1,9 @@
+atom:
+  packages:    
+    - git-diff
+    - split-diff
+    - minimap
+    - minimap-git-diff
+    - atom-beautify
+    - file-icons
+    - git-plus

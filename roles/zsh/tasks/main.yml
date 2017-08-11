@@ -1,0 +1,56 @@
+---
+- name: install with homebrew
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - zsh
+    - zsh-completions
+
+- name: Ensure /etc/shells contains ZSH.
+  lineinfile:
+    dest: "/etc/shells"
+    line: "/bin/zsh"
+  become: true
+
+- name: Check current shell
+  shell: echo $SHELL
+  register: current_shell
+  changed_when: false
+
+- name: Set ZSH shell as default for this users.
+  shell: chsh -s /bin/zsh {{ ansible_env.USER }}
+  when: '"zsh" not in current_shell.stdout'
+
+- name: Download oh-my-zsh installer
+  get_url:
+    url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+    dest: /tmp/oh-my-zsh-install.sh
+
+- name: install oh-my-zsh
+  script: /tmp/oh-my-zsh-install.sh
+  register: install_oh_my_zsh
+  changed_when: '"You already have Oh My Zsh installed" not in install_oh_my_zsh.stdout'
+
+- name: install zsh-autosuggestions plugin
+  git:
+    repo: 'https://github.com/zsh-users/zsh-autosuggestions'
+    dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
+- name: Ensure oh-my-zsh plugins config
+  lineinfile:
+    dest: "~/.zshrc"
+    regexp: '^plugins='
+    line: "plugins=(git mvn zsh-autosuggestions)"
+
+- name: Ensure oh-my-zsh theme config
+  lineinfile:
+    dest: "~/.zshrc"
+    regexp: '^ZSH_THEME='
+    line: 'ZSH_THEME="agnoster"'
+
+- name: Ensure oh-my-zsh default user config
+  lineinfile:
+    dest: "~/.zshrc"
+    regexp: '^DEFAULT_USER='
+    line: 'DEFAULT_USER="{{ ansible_env.USER }}"'

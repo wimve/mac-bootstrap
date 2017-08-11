@@ -1,0 +1,4 @@
+---
+- name: Install Jetbrains toolbox with cask
+  homebrew_cask:
+    name: jetbrains-toolbox

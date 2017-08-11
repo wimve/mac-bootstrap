@@ -1,0 +1,12 @@
+---
+- name: ensure .bash_profile exits
+  copy:
+    dest: ~/.bash_profile
+    content: ""
+    mode: 0600
+    force: no
+
+- name: ensure bash-profile mode
+  file:
+    path: ~/.bash_profile
+    mode: 0600

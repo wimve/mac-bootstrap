@@ -1,0 +1,11 @@
+- hosts: work
+  become_user: wimve
+  become: yes
+  roles:
+    - prerequisites
+    - homebrew
+    - git
+    - java
+    - zsh
+    - fonts
+    - apps

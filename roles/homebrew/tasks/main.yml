@@ -1,0 +1,32 @@
+- name: Allow all admins to manage homebrew
+  become: yes
+  become_user: root
+  file:
+    state: directory
+    recurse: yes
+    group: admin
+    mode: g+w
+    path: /usr/local
+
+- name: update homebrew
+  command: brew update
+  when: ansible_os_family == 'Darwin'
+  register: homebrew_update
+  changed_when: '"Already up-to-date" not in homebrew_update.stdout'
+
+- name: add homebrew cask
+  homebrew_tap:
+    name: caskroom/cask
+
+- name: install bash-completion
+  homebrew:
+    name: bash-completion
+
+- name: add bash completion to bash_profile
+  blockinfile:
+    marker: "# {mark} BASH COMPLETION"
+    path: ~/.bash_profile
+    block: |
+      if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        . $(brew --prefix)/etc/bash_completion
+      fi

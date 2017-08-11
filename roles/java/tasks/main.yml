@@ -1,0 +1,14 @@
+---
+- name: install with cask
+  homebrew_cask:
+    name: java
+
+- name: install maven with homebrew
+  homebrew:
+    name: maven
+    state: latest
+
+- name: install maven-completion with homebrew
+  homebrew:
+    name: maven-completion
+    state: latest

@@ -1,0 +1,4 @@
+---
+- name: install Google Drive with cask
+  homebrew_cask:
+    name: google-backup-and-sync
