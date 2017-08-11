@@ -9,6 +9,7 @@
     src: gitignore_global
     dest: ~/.gitignore_global
 
-# TODO: Check when changed
-- name: add global gitignore
-  shell: git config --global core.excludesfile ~/.gitignore_global
+- name: add gitconfig
+  template:
+    src: files/gitconfig
+    dest: ~/.gitconfig
