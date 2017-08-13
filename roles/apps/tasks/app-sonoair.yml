@@ -1,0 +1,4 @@
+---
+- name: install SonoAir with cask
+  homebrew_cask:
+    name: sonoair
