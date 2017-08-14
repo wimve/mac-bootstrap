@@ -1,0 +1,8 @@
+---
+- name: install MySql with homebrew
+  homebrew:
+    name: mysql
+
+- name: install MySql-Workbench with cask
+  homebrew_cask:
+    name: mysqlworkbench
