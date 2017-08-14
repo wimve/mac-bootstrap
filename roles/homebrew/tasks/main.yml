@@ -18,6 +18,14 @@
   homebrew_tap:
     name: caskroom/cask
 
+- name: add cask versions tap
+  homebrew_tap:
+    name: caskroom/versions
+
+- name: add homebrew services
+  homebrew_tap:
+    name: homebrew/services
+
 - name: install bash-completion
   homebrew:
     name: bash-completion
