@@ -1,0 +1,4 @@
+---
+- name: install Macs Fan Control with cask
+  homebrew_cask:
+    name: macs-fan-control
