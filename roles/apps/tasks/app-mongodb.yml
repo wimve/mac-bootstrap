@@ -1,0 +1,4 @@
+---
+- name: install MongoDb with homebrew
+  homebrew:
+    name: mongodb
