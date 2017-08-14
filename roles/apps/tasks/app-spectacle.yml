@@ -1,0 +1,4 @@
+---
+- name: install Spectacle with cask
+  homebrew_cask:
+    name: spectacle
