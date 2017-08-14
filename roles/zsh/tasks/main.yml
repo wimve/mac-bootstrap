@@ -54,3 +54,8 @@
     dest: "~/.zshrc"
     regexp: '^DEFAULT_USER='
     line: 'DEFAULT_USER="{{ ansible_env.USER }}"'
+
+- name: Ensure zsh brew completions config
+  lineinfile:
+    dest: "~/.zshrc"
+    line: 'fpath=(/usr/local/share/zsh-completions $fpath)'
