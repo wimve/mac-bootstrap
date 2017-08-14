@@ -12,3 +12,8 @@
   homebrew:
     name: maven-completion
     state: latest
+
+- name: install sbt with homebrew
+  homebrew:
+    name: sbt
+    state: latest
