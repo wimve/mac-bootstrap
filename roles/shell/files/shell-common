@@ -1,0 +1,16 @@
+# Give maven some room to breath
+export MAVEN_OPTS="-Xmx1g -XX:MaxPermSize=256m"
+
+# default jvm:
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# switch jvm
+alias setJdk6='export JAVA_HOME=$(/usr/libexec/java_home -v 1.6)'
+alias setJdk7='export JAVA_HOME=$(/usr/libexec/java_home -v 1.7)'
+alias setJdk8='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)'
+
+
+# set karaf debug default to true
+export KARAF_DEBUG=true
+
+#aliases
+alias mci='mvn -T 1C clean install'

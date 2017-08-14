@@ -1,0 +1,5 @@
+---
+- name: add shell-common script
+  copy:
+    src: shell-common
+    dest: ~/.shell-common

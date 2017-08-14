@@ -55,7 +55,17 @@
     regexp: '^DEFAULT_USER='
     line: 'DEFAULT_USER="{{ ansible_env.USER }}"'
 
+- name: Disable oh-my-zsh shared history
+  lineinfile:
+    dest: "~/.zshrc"
+    line: 'unsetopt share_history'
+
 - name: Ensure zsh brew completions config
   lineinfile:
     dest: "~/.zshrc"
     line: 'fpath=(/usr/local/share/zsh-completions $fpath)'
+
+- name: Ensure shell-common include
+  lineinfile:
+    dest: "~/.zshrc"
+    line: 'source ~/.shell-common'
