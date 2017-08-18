@@ -14,6 +14,11 @@
     name: maven
     state: latest
 
+- name: add mvn config switch script
+  copy:
+    src: mvn-config/switch.sh
+    dest: ~/.m2/switch.sh
+
 - name: install maven-completion with homebrew
   homebrew:
     name: maven-completion
