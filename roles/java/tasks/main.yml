@@ -9,6 +9,10 @@
   homebrew_cask:
     name: zulu7
 
+- name: install Java 6 with cask
+  homebrew_cask:
+    name: java6
+
 - name: install maven with homebrew
   homebrew:
     name: maven
