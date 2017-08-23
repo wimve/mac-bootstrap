@@ -1,0 +1,4 @@
+---
+- name: install FileZilla with cask
+  homebrew_cask:
+    name: filezilla
