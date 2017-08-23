@@ -1,0 +1,4 @@
+---
+- name: install Postman with cask
+  homebrew_cask:
+    name: postman
